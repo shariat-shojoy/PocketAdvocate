@@ -1,13 +1,15 @@
 import streamlit as st
 
+
 def show(title, icon, content):
 
     st.markdown(
-        f"""
-        <div class="card">
-            <h3>{icon} {title}</h3>
-        </div>
-        """,
+        '<div class="card result-card">'
+        "<h3>"
+        f'<span class="icon-badge">{icon}</span>'
+        f"{title}"
+        "</h3>"
+        "</div>",
         unsafe_allow_html=True
     )
 

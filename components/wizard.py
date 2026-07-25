@@ -6,6 +6,45 @@ from components.result_card import show as result_card
 from utils.parser import parse_sections
 
 
+STEP_LABELS = [
+    "Input Type",
+    "Details",
+    "Review",
+    "Analyzing",
+    "Results",
+]
+
+
+def _render_stepper(current_step):
+
+    nodes = ""
+
+    for i, label in enumerate(STEP_LABELS, start=1):
+
+        if i < current_step:
+            state = "completed"
+            marker = "✓"
+        elif i == current_step:
+            state = "active"
+            marker = str(i)
+        else:
+            state = ""
+            marker = str(i)
+
+        nodes += (
+            f'<div class="step {state}">'
+            f'<div class="step-line"></div>'
+            f'<div class="step-circle">{marker}</div>'
+            f'<div class="step-label">{label}</div>'
+            f'</div>'
+        )
+
+    st.markdown(
+        f'<div class="stepper">{nodes}</div>',
+        unsafe_allow_html=True
+    )
+
+
 def show():
 
     # ---------- Session State ----------
@@ -20,25 +59,18 @@ def show():
         st.session_state.input_type = None
 
     st.markdown(
-        """
-        <div class="card">
-        <div class="section-title">
-        Incident Analysis
-        </div>
-        </div>
-        """,
+        '<div class="card">'
+        '<div class="eyebrow">Case Intake</div>'
+        '<div class="section-title">Incident Analysis</div>'
+        '<p class="card-subtext">'
+        "Answer a few questions about what happened — we'll match it to the relevant "
+        "sections of Bangladesh law."
+        "</p>"
+        "</div>",
         unsafe_allow_html=True
     )
 
-    total_steps = 5
-
-    progress = min(st.session_state.step / total_steps, 1.0)
-
-    st.progress(progress)
-
-    st.caption(
-        f"Step {st.session_state.step} of {total_steps}"
-    )
+    _render_stepper(st.session_state.step)
 
     # -----------------------------
     # STEP 1

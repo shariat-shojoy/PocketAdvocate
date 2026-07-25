@@ -1,117 +1,465 @@
-/* ==========================
-   Pocket Advocate Theme
-========================== */
+/* ==========================================================
+   Pocket Advocate — Design Tokens (v2)
+   Concept: legal letterhead. A dark navy masthead band anchors
+   the page like an official document header; brass is spent in
+   exactly two places (the masthead rule, card top-rules) so it
+   still reads as a signature and not decoration everywhere.
+========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap');
+
+:root{
+    /* Color */
+    --ink:#101828;          /* near-black navy — headings, primary text, buttons */
+    --ink-hover:#060B14;
+    --ink-soft:#1B2C52;     /* lighter navy, used only in the masthead gradient */
+    --brass:#C28F3A;        /* the one accent — rules, active states, eyebrows */
+    --brass-soft:#C28F3A1a;
+    --parchment:#FBF8F2;    /* page background */
+    --paper:#FFFFFF;        /* card background */
+    --slate:#535C6B;        /* secondary text */
+    --hairline:#E6DFD0;
+    --success:#2F6F52;
+    --success-bg:#EAF3ED;
+    --danger:#B23B2E;
+    --danger-bg:#FBEAE8;
+    --warning:#A66A17;
+    --warning-bg:#FBF2E1;
+
+    /* Type — fluid scale, no fixed breakpoints needed */
+    --text-hero:clamp(34px, 5vw, 58px);
+    --text-h2:clamp(22px, 2.6vw, 28px);
+    --text-h3:20px;
+    --text-body:17px;
+    --text-caption:13px;
+
+    --font-display:'Source Serif 4', Georgia, serif;
+    --font-body:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono:'IBM Plex Mono', ui-monospace, monospace;
+
+    /* Spacing scale (4px base), a touch more generous than v1 */
+    --space-1:4px;
+    --space-2:8px;
+    --space-3:14px;
+    --space-4:20px;
+    --space-5:28px;
+    --space-6:36px;
+    --space-7:56px;
+
+    --radius-sm:10px;
+    --radius-md:16px;
+    --radius-lg:22px;
+    --shadow-card:0 1px 2px rgba(16,24,40,.04), 0 10px 28px rgba(16,24,40,.07);
+    --transition:150ms ease;
+}
+
+@media (prefers-reduced-motion:reduce){
+    *{
+        animation-duration:.001ms !important;
+        transition-duration:.001ms !important;
+    }
+}
+
+/* ==========================================================
+   Base
+========================================================== */
+
+.stApp{
+    background:var(--parchment);
+    font-family:var(--font-body);
+    font-size:var(--text-body);
+    color:var(--ink);
+}
 
 .main .block-container{
-    max-width:1200px;
-    padding-top:2rem;
-    padding-bottom:3rem;
+    max-width:880px;
+    padding-top:0;         /* masthead band supplies the top spacing now */
+    padding-bottom:4rem;
 }
 
-/* Hide Streamlit Menu */
+#MainMenu{ visibility:hidden; }
+footer{ visibility:hidden; }
+header{ visibility:hidden; }
 
-#MainMenu{
-    visibility:hidden;
+:focus-visible{
+    outline:2px solid var(--ink) !important;
+    outline-offset:2px !important;
+    border-radius:4px;
 }
 
-footer{
-    visibility:hidden;
+/* ==========================================================
+   Masthead — full-bleed navy band, the page's signature element.
+   Uses the classic 100vw/-50vw trick to bleed past Streamlit's
+   centered container regardless of container width.
+========================================================== */
+
+.navbar-band{
+    width:100vw;
+    position:relative;
+    left:50%;
+    margin-left:-50vw;
+    background:linear-gradient(135deg, var(--ink) 0%, var(--ink-soft) 100%);
+    border-bottom:3px solid var(--brass);
+    margin-bottom:var(--space-7);
 }
 
-header{
-    visibility:hidden;
+.navbar-inner{
+    max-width:880px;
+    margin:0 auto;
+    padding:30px 24px 26px;
+    display:flex;
+    align-items:center;
+    gap:14px;
 }
 
-/* Titles */
+.navbar-mark{
+    font-size:30px;
+    line-height:1;
+    color:var(--brass);
+}
+
+.navbar-name{
+    font-family:var(--font-display);
+    font-size:24px;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:#FFFFFF;
+}
+
+.navbar-tagline{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#B9C2D6;
+    margin-top:3px;
+}
+
+/* ==========================================================
+   Typography
+========================================================== */
 
 .main-title{
-
-    font-size:42px;
-
-    font-weight:700;
-
-    color:#1E3A8A;
-
+    font-family:var(--font-display);
+    font-size:var(--text-hero);
+    font-weight:600;
+    line-height:1.1;
+    letter-spacing:-0.015em;
+    color:var(--ink);
+    margin:0 0 var(--space-2) 0;
 }
 
 .sub-title{
-
-    font-size:20px;
-
-    color:#475569;
-
+    font-family:var(--font-body);
+    font-size:18px;
+    line-height:1.55;
+    color:var(--slate);
+    max-width:54ch;
 }
-
-/* Cards */
-
-.card{
-
-    background:white;
-
-    padding:25px;
-
-    border-radius:18px;
-
-    border:1px solid #E2E8F0;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.05);
-
-    margin-bottom:20px;
-
-}
-
-/* Section */
 
 .section-title{
-
-    font-size:24px;
-
+    font-family:var(--font-display);
+    font-size:var(--text-h2);
     font-weight:600;
-
-    margin-bottom:10px;
-
+    color:var(--ink);
+    margin-bottom:var(--space-2);
 }
 
-/* Primary Button */
+.eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin-bottom:var(--space-2);
+}
+
+.card-subtext{
+    font-family:var(--font-body);
+    font-size:15px;
+    line-height:1.5;
+    color:var(--slate);
+    margin-top:var(--space-2);
+}
+
+.stCaption, [data-testid="stCaptionContainer"]{
+    font-family:var(--font-mono) !important;
+    font-size:var(--text-caption) !important;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--slate) !important;
+    margin-top:var(--space-2) !important;
+}
+
+/* ==========================================================
+   Cards
+========================================================== */
+
+.card{
+    background:var(--paper);
+    padding:32px;
+    border-radius:var(--radius-lg);
+    border:1px solid var(--hairline);
+    border-top:3px solid var(--brass);
+    box-shadow:var(--shadow-card);
+    margin-bottom:var(--space-5);
+    transition:transform var(--transition), box-shadow var(--transition);
+}
+
+.card h3{
+    font-family:var(--font-display);
+    font-size:var(--text-h3);
+    font-weight:600;
+    color:var(--ink);
+    margin:0 0 var(--space-2) 0;
+    display:flex;
+    align-items:center;
+    gap:var(--space-3);
+}
+
+/* Result cards lift slightly on hover — a small signal that
+   the surface is a distinct, scannable unit, not flat text */
+.result-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 4px 6px rgba(16,24,40,.05), 0 16px 32px rgba(16,24,40,.09);
+}
+
+/* Icon badge — circular, tinted, used in result card headers
+   instead of an inline emoji floating next to text */
+.icon-badge{
+    flex-shrink:0;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:var(--brass-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:17px;
+}
+
+/* Chips — used in the hero to name real coverage areas.
+   Structural (what the tool covers), not decorative. */
+.chip-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--space-2);
+    margin-top:var(--space-4);
+}
+
+.chip{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:.03em;
+    color:var(--ink);
+    background:var(--parchment);
+    border:1px solid var(--hairline);
+    border-radius:999px;
+    padding:6px 14px;
+}
+
+/* ==========================================================
+   Buttons
+========================================================== */
 
 .stButton>button{
-
     width:100%;
-
-    border-radius:12px;
-
-    height:50px;
-
-    font-size:18px;
-
+    border-radius:var(--radius-sm);
+    height:54px;
+    font-family:var(--font-body);
+    font-size:17px;
     font-weight:600;
-
-    background:#2563EB;
-
-    color:white;
-
-    border:none;
-
+    background:var(--ink);
+    color:var(--paper);
+    border:1px solid var(--ink);
+    transition:background var(--transition), transform var(--transition);
 }
 
 .stButton>button:hover{
-
-    background:#1D4ED8;
-
+    background:var(--ink-hover);
+    border-color:var(--ink-hover);
 }
 
-/* Text Area */
-
-textarea{
-
-    border-radius:12px !important;
-
+.stButton>button:active{
+    transform:scale(.99);
 }
 
-/* Upload */
+.stButton>button:disabled{
+    background:var(--hairline);
+    border-color:var(--hairline);
+    color:var(--slate);
+    cursor:not-allowed;
+}
+
+button[kind="secondary"], [data-testid="stBaseButton-secondary"]{
+    background:transparent !important;
+    color:var(--ink) !important;
+    border:1px solid var(--hairline) !important;
+}
+
+button[kind="secondary"]:hover, [data-testid="stBaseButton-secondary"]:hover{
+    border-color:var(--ink) !important;
+    background:var(--brass-soft) !important;
+}
+
+/* ==========================================================
+   Inputs — font-size 16px minimum keeps iOS from auto-zooming
+   on focus, which is a real usability papercut on mobile.
+========================================================== */
+
+textarea, input, .stSelectbox>div>div{
+    border-radius:var(--radius-sm) !important;
+    border-color:var(--hairline) !important;
+    font-family:var(--font-body) !important;
+    font-size:16px !important;
+}
+
+textarea:focus, input:focus{
+    border-color:var(--ink) !important;
+    box-shadow:0 0 0 1px var(--ink) !important;
+}
 
 [data-testid="stFileUploader"]{
+    border-radius:var(--radius-md);
+    border:1px dashed var(--hairline);
+    background:var(--paper);
+}
 
-    border-radius:15px;
+/* ==========================================================
+   Stepper — replaces the plain progress bar. Five connected
+   nodes, each carrying its own state (done / active / upcoming)
+   so the wizard reads as a real structured process.
+========================================================== */
 
+.stepper{
+    display:flex;
+    align-items:flex-start;
+    margin-bottom:var(--space-6);
+}
+
+.step{
+    position:relative;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+
+.step-line{
+    position:absolute;
+    top:17px;
+    left:50%;
+    width:100%;
+    height:2px;
+    background:var(--hairline);
+    z-index:1;
+}
+
+.step:last-child .step-line{
+    display:none;
+}
+
+.step.completed .step-line{
+    background:var(--ink);
+}
+
+.step-circle{
+    position:relative;
+    z-index:2;
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--font-mono);
+    font-size:13px;
+    font-weight:600;
+    background:var(--paper);
+    border:2px solid var(--hairline);
+    color:var(--slate);
+    transition:all var(--transition);
+}
+
+.step.completed .step-circle{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:#fff;
+}
+
+.step.active .step-circle{
+    background:var(--brass);
+    border-color:var(--brass);
+    color:#fff;
+    box-shadow:0 0 0 4px var(--brass-soft);
+}
+
+.step-label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-top:var(--space-2);
+}
+
+.step.active .step-label{
+    color:var(--ink);
+    font-weight:600;
+}
+
+/* ==========================================================
+   Progress — kept for the analyzing step (indeterminate work),
+   thickened so it reads as a real status indicator
+========================================================== */
+
+.stProgress > div > div{
+    background:var(--hairline) !important;
+    height:8px !important;
+    border-radius:4px !important;
+}
+
+.stProgress > div > div > div{
+    background:var(--brass) !important;
+    border-radius:4px !important;
+}
+
+/* ==========================================================
+   Status feedback
+========================================================== */
+
+[data-testid="stAlertContainer"]{
+    border-radius:var(--radius-sm);
+    font-family:var(--font-body);
+    font-size:15px;
+}
+
+[data-testid="stNotificationContentSuccess"]{ color:var(--success); }
+[data-testid="stNotificationContentError"]{ color:var(--danger); }
+[data-testid="stNotificationContentWarning"]{ color:var(--warning); }
+
+/* ==========================================================
+   Tabs
+========================================================== */
+
+.stTabs [data-baseweb="tab-list"]{
+    gap:var(--space-5);
+    border-bottom:1px solid var(--hairline);
+}
+
+.stTabs [data-baseweb="tab"]{
+    font-family:var(--font-body);
+    font-size:15px;
+    font-weight:600;
+    color:var(--slate);
+}
+
+.stTabs [aria-selected="true"]{
+    color:var(--ink) !important;
+}
+
+.stTabs [data-baseweb="tab-highlight"]{
+    background:var(--brass) !important;
 }
