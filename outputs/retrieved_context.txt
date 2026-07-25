@@ -1,102 +1,119 @@
+User Query:
+
+Location:
+Street
+
+Person:
+One of my relatives
+
+Incident:
+Slapped me on my face
+
+Time:
+today
+
+
+========================================================================================================================
+
 
 Relevant Law #1
 
 Law Title:
-The Penal Code, 1860
+প্রাণিকল্যাণ আইন, ২০১৯
 
 Section:
-Threat of injury to induce person to refrain from applying for protection to public servant
+অপরাধ ও দণ্ড
 
-Similarity:
-0.8434
+Similarity Score:
+0.8395
 
-Law Text:
+Legal Text:
 Law Title:
-The Penal Code, 1860
+প্রাণিকল্যাণ আইন, ২০১৯
 
 Description:
 
 
 Chapter:
-OF CONTEMPTS OF THE LAWFUL AUTHORITY OF PUBLIC SERVANTS
+
 
 Section:
-Threat of injury to induce person to refrain from applying for protection to public servant
+অপরাধ ও দণ্ড
 
 Section Description:
-190. Whoever holds out any threat of injury to any person for the purpose of inducing that person to refrain or desist from making a legal application for protection against any injury to any public servant legally empowered as such to give such protection, or to cause such protection to be given, shall be punished with imprisonment of either description for a term which may extend to one year, or with fine, or with both.
+
 
 
 Relevant Law #2
 
 Law Title:
-The Penal Code, 1860
+প্রাণিকল্যাণ আইন, ২০১৯
 
 Section:
-“Injury”
+অঙ্গহানি
 
-Similarity:
-0.8387
+Similarity Score:
+0.8391
 
-Law Text:
+Legal Text:
 Law Title:
-The Penal Code, 1860
+প্রাণিকল্যাণ আইন, ২০১৯
 
 Description:
 
 
 Chapter:
-GENERAL EXPLANATIONS
+
 
 Section:
-“Injury”
+অঙ্গহানি
 
 Section Description:
-44. The word "injury" denotes any harm whatever illegally caused to any person, in body, mind, reputation or property.
+
 
 
 Relevant Law #3
 
 Law Title:
-The Evidence Act, 1872
+প্রাণিকল্যাণ আইন, ২০১৯
 
 Section:
-Presumption as to telegraphic messages
+অপরাধ বিচারার্থ গ্রহণ
 
-Similarity:
-0.8384
+Similarity Score:
+0.8390
 
-Law Text:
+Legal Text:
 Law Title:
-The Evidence Act, 1872
+প্রাণিকল্যাণ আইন, ২০১৯
 
 Description:
 
 
 Chapter:
-PRESUMPTION AS TO DOCUMENTS
+
 
 Section:
-Presumption as to telegraphic messages
+অপরাধ বিচারার্থ গ্রহণ
 
 Section Description:
-88. 	The Court may presume that a message, forwarded from a telegraph office to the person to whom such message purports to be addressed, corresponds with a message delivered for transmission at the office from which the message purports to be sent; but the Court shall not make any presumption as to the person by whom such message was delivered for transmission.
+
 
 
 Relevant Law #4
 
 Law Title:
-The Penal Code, 1860
+প্রাণিকল্যাণ আইন, ২০১৯
 
 Section:
-Criminal intimidation
+অপরাধের আমলযোগ্যতা ও জামিনযোগ্যতা
 
-Similarity:
-0.8381
+Similarity Score:
+0.8373
 
-Law Text:
+Legal Text:
 Law Title:
-The Penal Code, 1860
+প্রাণিকল্যাণ আইন, ২০১৯
 
 Description:
 
@@ -105,35 +122,34 @@ Chapter:
 
 
 Section:
-Criminal intimidation
+অপরাধের আমলযোগ্যতা ও জামিনযোগ্যতা
 
 Section Description:
-503. Whoever threatens another with any injury to his person, reputation or property, or to the person or reputation of any one in whom that person is interested, with intent to cause to alarm to that person, or to cause that person to do any act which he is not legally bound to do, or to omit to do any act which that person is legally entitled to do, as the means of avoiding the execution of such threat, commits criminal intimidation.
+
 
 
 Relevant Law #5
 
 Law Title:
-The Penal Code, 1860
+প্রাণিকল্যাণ আইন, ২০১৯
 
 Section:
-Act likely to cause harm, but done without criminal intent and to prevent other harm
+পরিবহন কাজে প্রাণির ব্যবহার
 
-Similarity:
-0.8381
+Similarity Score:
+0.8345
 
-Law Text:
+Legal Text:
 Law Title:
-The Penal Code, 1860
+প্রাণিকল্যাণ আইন, ২০১৯
 
 Description:
 
 
 Chapter:
-GENERAL EXCEPTIONS
+
 
 Section:
-Act likely to cause harm, but done without criminal intent and to prevent other harm
+পরিবহন কাজে প্রাণির ব্যবহার
 
 Section Description:
-81. Nothing is an offence merely by reason of its being done with the knowledge that it is likely to cause harm, if it be done without any criminal intention to cause harm, and in good faith for the purpose of preventing or avoiding other harm to person or property.

@@ -218,25 +218,57 @@ header{ visibility:hidden; }
     gap:var(--space-3);
 }
 
-/* Result cards lift slightly on hover — a small signal that
-   the surface is a distinct, scannable unit, not flat text */
-.result-card:hover{
-    transform:translateY(-2px);
-    box-shadow:0 4px 6px rgba(16,24,40,.05), 0 16px 32px rgba(16,24,40,.09);
-}
-
-/* Icon badge — circular, tinted, used in result card headers
-   instead of an inline emoji floating next to text */
+/* Icon badge — circular, tinted, used next to result titles */
 .icon-badge{
     flex-shrink:0;
-    width:36px;
-    height:36px;
+    width:32px;
+    height:32px;
     border-radius:50%;
     background:var(--brass-soft);
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:17px;
+    font-size:15px;
+}
+
+/* Result title — a plain label above the outcome, not a boxed card.
+   Deliberately quiet so attention goes to the content below it. */
+.result-title{
+    display:flex;
+    align-items:center;
+    gap:var(--space-3);
+    font-family:var(--font-display);
+    font-size:19px;
+    font-weight:600;
+    color:var(--ink);
+    margin:var(--space-6) 0 var(--space-3) 0;
+}
+
+.result-title:first-of-type{
+    margin-top:0;
+}
+
+/* Outcome box — the actual LLM-generated answer. This is the element
+   that should carry visual weight, so it gets the elevation, the
+   accent border, and generous padding that the title used to have.
+   Targets the real Streamlit container via its key, so the content
+   is genuinely inside the box, not just a sibling styled to match. */
+[class*="st-key-outcome-"]{
+    background:var(--paper);
+    border-left:4px solid var(--brass);
+    border-radius:var(--radius-md);
+    padding:26px 30px;
+    box-shadow:var(--shadow-card);
+    margin-bottom:var(--space-2);
+    font-size:16px;
+    line-height:1.7;
+    color:var(--ink);
+    transition:transform var(--transition), box-shadow var(--transition);
+}
+
+[class*="st-key-outcome-"]:hover{
+    transform:translateY(-2px);
+    box-shadow:0 4px 6px rgba(16,24,40,.05), 0 16px 32px rgba(16,24,40,.09);
 }
 
 /* Chips — used in the hero to name real coverage areas.
