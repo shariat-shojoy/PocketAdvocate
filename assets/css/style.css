@@ -1,0 +1,117 @@
+/* ==========================
+   Pocket Advocate Theme
+========================== */
+
+.main .block-container{
+    max-width:1200px;
+    padding-top:2rem;
+    padding-bottom:3rem;
+}
+
+/* Hide Streamlit Menu */
+
+#MainMenu{
+    visibility:hidden;
+}
+
+footer{
+    visibility:hidden;
+}
+
+header{
+    visibility:hidden;
+}
+
+/* Titles */
+
+.main-title{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:#1E3A8A;
+
+}
+
+.sub-title{
+
+    font-size:20px;
+
+    color:#475569;
+
+}
+
+/* Cards */
+
+.card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    border:1px solid #E2E8F0;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.05);
+
+    margin-bottom:20px;
+
+}
+
+/* Section */
+
+.section-title{
+
+    font-size:24px;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+/* Primary Button */
+
+.stButton>button{
+
+    width:100%;
+
+    border-radius:12px;
+
+    height:50px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    background:#2563EB;
+
+    color:white;
+
+    border:none;
+
+}
+
+.stButton>button:hover{
+
+    background:#1D4ED8;
+
+}
+
+/* Text Area */
+
+textarea{
+
+    border-radius:12px !important;
+
+}
+
+/* Upload */
+
+[data-testid="stFileUploader"]{
+
+    border-radius:15px;
+
+}

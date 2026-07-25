@@ -5,10 +5,10 @@ Law Title:
 The Penal Code, 1860
 
 Section:
-Act likely to cause harm, but done without criminal intent and to prevent other harm
+“Injury”
 
 Similarity:
-0.8442
+0.8489
 
 Law Text:
 Law Title:
@@ -18,13 +18,13 @@ Description:
 
 
 Chapter:
-GENERAL EXCEPTIONS
+GENERAL EXPLANATIONS
 
 Section:
-Act likely to cause harm, but done without criminal intent and to prevent other harm
+“Injury”
 
 Section Description:
-81. Nothing is an offence merely by reason of its being done with the knowledge that it is likely to cause harm, if it be done without any criminal intention to cause harm, and in good faith for the purpose of preventing or avoiding other harm to person or property.
+44. The word "injury" denotes any harm whatever illegally caused to any person, in body, mind, reputation or property.
 
 
 Relevant Law #2
@@ -36,7 +36,7 @@ Section:
 Threat of injury to induce person to refrain from applying for protection to public servant
 
 Similarity:
-0.8440
+0.8479
 
 Law Text:
 Law Title:
@@ -61,7 +61,63 @@ Law Title:
 The Penal Code, 1860
 
 Section:
-“Injury”
+Criminal intimidation
+
+Similarity:
+0.8472
+
+Law Text:
+Law Title:
+The Penal Code, 1860
+
+Description:
+
+
+Chapter:
+
+
+Section:
+Criminal intimidation
+
+Section Description:
+503. Whoever threatens another with any injury to his person, reputation or property, or to the person or reputation of any one in whom that person is interested, with intent to cause to alarm to that person, or to cause that person to do any act which he is not legally bound to do, or to omit to do any act which that person is legally entitled to do, as the means of avoiding the execution of such threat, commits criminal intimidation.
+
+
+Relevant Law #4
+
+Law Title:
+The Penal Code, 1860
+
+Section:
+Tampering with property mark with intent to cause injury
+
+Similarity:
+0.8437
+
+Law Text:
+Law Title:
+The Penal Code, 1860
+
+Description:
+
+
+Chapter:
+OF OFFENCES RELATING TO DOCUMENTS AND TO TRADE OR PROPERTY MARKS
+
+Section:
+Tampering with property mark with intent to cause injury
+
+Section Description:
+489. Whoever removes, destroys, defaces or adds to any property mark, intending or knowing it to be likely that he may thereby cause injury to any person, shall be punished with imprisonment of either description for a term which may extend to one year, or with fine, or with both.
+
+
+Relevant Law #5
+
+Law Title:
+The Penal Code, 1860
+
+Section:
+Criminal intimidation by an anonymous communication
 
 Similarity:
 0.8436
@@ -74,66 +130,10 @@ Description:
 
 
 Chapter:
-GENERAL EXPLANATIONS
+
 
 Section:
-“Injury”
+Criminal intimidation by an anonymous communication
 
 Section Description:
-44. The word "injury" denotes any harm whatever illegally caused to any person, in body, mind, reputation or property.
-
-
-Relevant Law #4
-
-Law Title:
-The Mines Act, 1923
-
-Section:
-Powers of Inspectors when causes of danger not expressly provided against exist or when employment of persons is dangerous
-
-Similarity:
-0.8428
-
-Law Text:
-Law Title:
-The Mines Act, 1923
-
-Description:
-WHEREAS it is expedient to amend and consolidate the law relating to the regulation and inspection of mines; It is hereby enacted as follows:-
-
-Chapter:
-PROVISIONS AS TO HEALTH AND SAFETY
-
-Section:
-Powers of Inspectors when causes of danger not expressly provided against exist or when employment of persons is dangerous
-
-Section Description:
-19.(1) If, in any respect which is not provided against by any express provision of this Act or of the regulations, rules or bye-laws or of any orders made thereunder, it appears to the Chief Inspector or the Inspector that any mine, or any part there of or any matter, thing or practice in or connected with the mine, or with the control, management or direction thereof, is dangerous to human life or safety, or defective so as to threaten, or tend to, the bodily injury of any person, he may give notice in writing thereof to the owner, agent or manager of the mine, and shall state in the notice the particulars in which he considers the mine, or part thereof, or the matter, thing or practice, to be dangerous or defective and require the same to be remedied within such time as he may specify in the notice.
-
-
-Relevant Law #5
-
-Law Title:
-The Penal Code, 1860
-
-Section:
-Cheating
-
-Similarity:
-0.8406
-
-Law Text:
-Law Title:
-The Penal Code, 1860
-
-Description:
-
-
-Chapter:
-OF OFFENCES AGAINST PROPERTY
-
-Section:
-Cheating
-
-Section Description:
-415. Whoever, by deceiving any person, fraudulently or dishonestly induces the person so deceived to deliver any property to any person, or to consent that any person shall retain any property, or intentionally induces the person so deceived to do or omit to do anything which he would not do or omit if he were not so deceived, and which act or omission causes or is likely to cause damage or harm to that person in body, mind, reputation or property, is said to "cheat".
+507. Whoever commits the offence of criminal intimidation by an anonymous communication, or having taken precaution to conceal the name or abode of the person from whom the threat comes, shall be punished with imprisonment of either description for a term which may extend to two years, in addition to the punishment provided for the offence by the last preceding section.
