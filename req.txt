@@ -1,0 +1,10 @@
+streamlit
+pandas
+sentence-transformers
+faiss-cpu
+python-dotenv
+openai
+pillow
+paddleocr
+paddlepaddle
+tqdm
