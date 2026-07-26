@@ -1,31 +1,31 @@
 User Query:
 
 Location:
-Street
+Facebook
 
 Person:
-One of my relatives
+police
 
 Incident:
-Slapped me on my face
+police detained me for 2 days without any reason
 
 Time:
-today
+2 days ago
 
 
 ========================================================================================================================
 
 ## Summary
-The incident involves a relative slapping the user on the face, which is a form of physical assault. However, the retrieved laws are related to animal welfare (প্রাণিকল্যাণ আইন, ২০১৯), which does not directly apply to the incident.
+The user was detained by the police for 2 days without any reason on Facebook. The relevant laws retrieved are from The Police Act, 1861, and The Code of Criminal Procedure, 1898.
 
 ## Relevant Laws
-None of the retrieved laws directly relate to the incident of physical assault by a relative.
+The most relevant law in this context is The Code of Criminal Procedure, 1898, Section 61, which states that no police-officer shall detain in custody a person arrested without warrant for a longer period than under all the circumstances of the case is reasonable, and such period shall not, in the absence of a special order of a Magistrate under section 167, exceed twenty-four hours exclusive of the time necessary for the journey from the place of arrest to the Magistrate's Court.
 
 ## Why These Laws May Apply
-These laws may not apply to the incident as they pertain to animal welfare, not human physical assault.
+These laws may apply because the user was detained by the police for 2 days, which exceeds the 24-hour limit specified in The Code of Criminal Procedure, 1898, Section 61. This suggests that the police may have acted beyond their authority in detaining the user for an extended period without a valid reason.
 
 ## Suggested Legal Actions
-I could not confidently identify a matching law from the retrieved legal context. It is recommended to consult with a legal professional to determine the relevant laws and appropriate actions for the incident.
+The user may want to consider filing a complaint against the police for unlawful detention. The user can approach a Magistrate's Court or a higher court to seek redress for the alleged violation of their rights. The user may also want to seek the assistance of a lawyer to guide them through the legal process.
 
 ## Disclaimer
-This is educational information and not professional legal advice. The user should consult with a qualified lawyer to understand their rights and options under the relevant laws of Bangladesh.
+This is educational information and not professional legal advice. The user should consult a qualified lawyer to get specific advice on their situation. The laws and regulations mentioned are subject to change, and the user should verify the accuracy of the information before taking any action.

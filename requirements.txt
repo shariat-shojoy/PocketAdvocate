@@ -8,3 +8,4 @@ pillow
 paddleocr
 paddlepaddle
 tqdm
+streamlit 
