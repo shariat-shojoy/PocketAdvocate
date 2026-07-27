@@ -9,4 +9,4 @@ __pycache__/
 *.pyc
 
 # Generated FAISS index
-data/faiss_index/
+#data/faiss_index/
