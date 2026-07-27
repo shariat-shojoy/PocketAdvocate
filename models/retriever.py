@@ -1,6 +1,10 @@
 import pickle
 import faiss
 
+from pathlib import Path
+import faiss
+
+
 from models.embedding import EmbeddingModel
 
 
@@ -10,8 +14,14 @@ class LawRetriever:
 
         print("Loading FAISS index...")
 
-        self.index = faiss.read_index("data/faiss_index/law.index")
+        BASE_DIR = Path(__file__).resolve().parent.parent
 
+        INDEX_PATH = BASE_DIR / "data" / "faiss_index" / "law.index"
+
+        print("Loading index from:", INDEX_PATH)
+        print("Exists:", INDEX_PATH.exists())
+
+        self.index = faiss.read_index(str(INDEX_PATH))
         with open("data/faiss_index/metadata.pkl", "rb") as f:
             data = pickle.load(f)
 

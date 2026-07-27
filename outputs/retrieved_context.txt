@@ -1,160 +1,139 @@
-User Query:
-
-Location:
-Facebook
-
-Person:
-police
-
-Incident:
-police detained me for 2 days without any reason
-
-Time:
-2 days ago
-
-
-========================================================================================================================
-
 
 Relevant Law #1
 
 Law Title:
-The Police Act, 1861
+The Penal Code, 1860
 
 Section:
-Police-officer not to resign without leave or two months’ notice
+“Injury”
 
-Similarity Score:
-0.8464
+Similarity:
+0.8489
 
-Legal Text:
+Law Text:
 Law Title:
-The Police Act, 1861
+The Penal Code, 1860
 
 Description:
-WHEREAS it is expedient to re-organize the police and to make it a more efficient instrument for the prevention and detection of crime;  It is enacted as follows:-
+
 
 Chapter:
-
+GENERAL EXPLANATIONS
 
 Section:
-Police-officer not to resign without leave or two months’ notice
+“Injury”
 
 Section Description:
-9. No police-officer shall be at liberty to withdraw himself from the duties of his office, unless expressly allowed to do so by the District Superintendent or by some other officer authorized to grant such permission, or, without the leave of the District Superintendent, to resign his office, unless he shall have given to his superior officer notice in writing for a period of not less than two months, of his intention to resign.
-
+44. The word "injury" denotes any harm whatever illegally caused to any person, in body, mind, reputation or property.
 
 
 Relevant Law #2
 
 Law Title:
-The Police Act, 1861
+The Penal Code, 1860
 
 Section:
+Threat of injury to induce person to refrain from applying for protection to public servant
 
+Similarity:
+0.8479
 
-Similarity Score:
-0.8431
-
-Legal Text:
+Law Text:
 Law Title:
-The Police Act, 1861
+The Penal Code, 1860
 
 Description:
-WHEREAS it is expedient to re-organize the police and to make it a more efficient instrument for the prevention and detection of crime;  It is enacted as follows:-
+
 
 Chapter:
-
+OF CONTEMPTS OF THE LAWFUL AUTHORITY OF PUBLIC SERVANTS
 
 Section:
-
+Threat of injury to induce person to refrain from applying for protection to public servant
 
 Section Description:
-Third.-Any person who keeps any cattle or conveyance of any kind standing longer than is required for loading or unloading or for taking up or setting down passengers, or who leaves any conveyance in such a manner as to cause inconvenience or danger to the public:
-
+190. Whoever holds out any threat of injury to any person for the purpose of inducing that person to refrain or desist from making a legal application for protection against any injury to any public servant legally empowered as such to give such protection, or to cause such protection to be given, shall be punished with imprisonment of either description for a term which may extend to one year, or with fine, or with both.
 
 
 Relevant Law #3
 
 Law Title:
-The Code of Criminal Procedure, 1898
+The Penal Code, 1860
 
 Section:
-Person arrested not to be detained more than twenty-four hours
+Criminal intimidation
 
-Similarity Score:
-0.8412
+Similarity:
+0.8472
 
-Legal Text:
+Law Text:
 Law Title:
-The Code of Criminal Procedure, 1898
+The Penal Code, 1860
 
 Description:
-WHEREAS it is expedient to consolidate and amend the law relating to Criminal Procedure; It is hereby enacted as follows:
+
 
 Chapter:
-OF ARREST, ESCAPE AND RETAKING
+
 
 Section:
-Person arrested not to be detained more than twenty-four hours
+Criminal intimidation
 
 Section Description:
-61. No police-officer shall detain in custody a person arrested without warrant for a longer period than under all the circumstances of the case is reasonable, and such period shall not, in the absence of a special order of a Magistrate under section 167, exceed twenty-four hours exclusive of the time necessary for the journey from the place of arrest to the Magistrate's Court.
-
+503. Whoever threatens another with any injury to his person, reputation or property, or to the person or reputation of any one in whom that person is interested, with intent to cause to alarm to that person, or to cause that person to do any act which he is not legally bound to do, or to omit to do any act which that person is legally entitled to do, as the means of avoiding the execution of such threat, commits criminal intimidation.
 
 
 Relevant Law #4
 
 Law Title:
-The Police Act, 1861
+The Penal Code, 1860
 
 Section:
-Prohibition to sell tickets, etc.
+Tampering with property mark with intent to cause injury
 
-Similarity Score:
-0.8396
+Similarity:
+0.8437
 
-Legal Text:
+Law Text:
 Law Title:
-The Police Act, 1861
+The Penal Code, 1860
 
 Description:
-WHEREAS it is expedient to re-organize the police and to make it a more efficient instrument for the prevention and detection of crime;  It is enacted as follows:-
+
 
 Chapter:
-
+OF OFFENCES RELATING TO DOCUMENTS AND TO TRADE OR PROPERTY MARKS
 
 Section:
-Prohibition to sell tickets, etc.
+Tampering with property mark with intent to cause injury
 
 Section Description:
-[34A.(1) No person shall sell or offer for sale any ticket once issued for admission as spectator to any place of entertainment at a price higher than the price at which such ticket was originally issued.Explanation.In this section, the word “entertainment" means any exhibition, performance, amusement, game or sports to which persons are admitted as spectators on production of tickets and a "place of entertainment" shall be construed accordingly.(2) Whoever contravenes the provision of sub-section (1) shall be liable to imprisonment for a term which may extend to three months or to a fine which may extend to one hundred taka or to both.(3) Any police-officer not below the rank of Sub-Inspector or Sergeant may arrest without warrant any person committing an offence under sub-section (1).]
-
+489. Whoever removes, destroys, defaces or adds to any property mark, intending or knowing it to be likely that he may thereby cause injury to any person, shall be punished with imprisonment of either description for a term which may extend to one year, or with fine, or with both.
 
 
 Relevant Law #5
 
 Law Title:
-The Police Act, 1861
+The Penal Code, 1860
 
 Section:
-Indecent exposure of person
+Criminal intimidation by an anonymous communication
 
-Similarity Score:
-0.8395
+Similarity:
+0.8436
 
-Legal Text:
+Law Text:
 Law Title:
-The Police Act, 1861
+The Penal Code, 1860
 
 Description:
-WHEREAS it is expedient to re-organize the police and to make it a more efficient instrument for the prevention and detection of crime;  It is enacted as follows:-
+
 
 Chapter:
 
 
 Section:
-Indecent exposure of person
+Criminal intimidation by an anonymous communication
 
 Section Description:
-Seventh.Any person who wilfully and indecently exposes his person, or any offensive deformity or disease, or commits nuisance by easing himself, or by bathing or washing in any tank or reservoir not being a place set apart for that purpose:
+507. Whoever commits the offence of criminal intimidation by an anonymous communication, or having taken precaution to conceal the name or abode of the person from whom the threat comes, shall be punished with imprisonment of either description for a term which may extend to two years, in addition to the punishment provided for the offence by the last preceding section.
