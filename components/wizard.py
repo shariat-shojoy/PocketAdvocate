@@ -6,6 +6,15 @@ from components.result_card import show as result_card
 from utils.parser import parse_sections
 
 
+@st.cache_resource
+def get_legal_service():
+    # Runs exactly once per running process, regardless of how many
+    # browser sessions or page reloads happen — this is what stops
+    # the embedding model + FAISS index from being reloaded (and the
+    # memory footprint from stacking up) on every reconnect.
+    return LegalService()
+
+
 STEP_LABELS = [
     "Input Type",
     "Details",
@@ -53,7 +62,7 @@ def show():
         st.session_state.step = 1
 
     if "service" not in st.session_state:
-        st.session_state.service = LegalService()
+        st.session_state.service = get_legal_service()
 
     if "input_type" not in st.session_state:
         st.session_state.input_type = None

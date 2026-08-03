@@ -1,17 +1,15 @@
 from pathlib import Path
 
 from models.vision import VisionAnalyzer
-from models.retriever import LawRetriever
-from models.llm import LegalLLM
 
 
 class ImageLegalAssistant:
 
-    def __init__(self):
+    def __init__(self, retriever, llm):
 
         self.vision = VisionAnalyzer()
-        self.retriever = LawRetriever()
-        self.llm = LegalLLM()
+        self.retriever = retriever
+        self.llm = llm
 
         Path("outputs").mkdir(exist_ok=True)
 

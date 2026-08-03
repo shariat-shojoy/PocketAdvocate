@@ -1,14 +1,10 @@
 streamlit
 pandas
 numpy
-
 sentence-transformers
 transformers
 faiss-cpu
-
 openai
 python-dotenv
-
 Pillow
-
 tqdm

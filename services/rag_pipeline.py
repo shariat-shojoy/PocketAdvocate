@@ -1,15 +1,11 @@
 from pathlib import Path
 
-from models.retriever import LawRetriever
-from models.llm import LegalLLM
-
 
 class PocketAdvocate:
 
-    def __init__(self):
-
-        self.retriever = LawRetriever()
-        self.llm = LegalLLM()
+    def __init__(self, retriever, llm):
+        self.retriever = retriever
+        self.llm = llm
 
     def ask(self, question):
 
