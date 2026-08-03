@@ -13,7 +13,9 @@ PocketAdvocate is an AI-powered legal assistant that helps Bangladeshi citizens 
 - 🤖 AI-generated legal explanation
 - ⚖️ Suggest applicable laws and next legal steps
 - 🎯 Human-Computer Interaction (HCI) based user interface
-- 🌐 Deployable on Railway or Streamlit Cloud (link will be provided asap)
+- 🌐 Deployable on Railway 
+
+- 🌐 Live link: https://pocketadvocate-production.up.railway.app/
 
 ---
 <img width="2559" height="1150" alt="image" src="https://github.com/user-attachments/assets/55b0fdb8-a77e-44ab-b54e-08f3a2a309b5" />
