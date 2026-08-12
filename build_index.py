@@ -5,13 +5,13 @@ from pathlib import Path
 
 import faiss
 
-from models.embedding import EmbeddingModel, MODEL_NAME
+from models.embedding import EmbeddingModel, INDEX_DIRECTORY, MODEL_NAME, RAG_PROFILE
 from utils.chunker import dataframe_to_documents
 from utils.loader import LawLoader
 
 
 BASE_DIR = Path(__file__).resolve().parent
-INDEX_DIR = BASE_DIR / "data" / "faiss_index"
+INDEX_DIR = BASE_DIR / "data" / INDEX_DIRECTORY
 
 
 def main():
@@ -20,7 +20,7 @@ def main():
     print(f"Loaded {len(dataframe)} statute records into {len(documents)} retrieval passages.")
 
     embedder = EmbeddingModel()
-    print(f"Embedding with {MODEL_NAME} on {embedder.device}.")
+    print(f"Embedding with {MODEL_NAME} ({RAG_PROFILE} profile) on {embedder.device}.")
     embeddings = embedder.encode_documents(documents)
 
     index = faiss.IndexFlatIP(embeddings.shape[1])

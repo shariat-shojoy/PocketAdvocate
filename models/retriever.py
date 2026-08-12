@@ -5,13 +5,13 @@ from pathlib import Path
 
 import faiss
 
-from models.embedding import EmbeddingModel, MODEL_NAME
+from models.embedding import EmbeddingModel, INDEX_DIRECTORY, MODEL_NAME, RAG_PROFILE
 
 
 class LawRetriever:
     def __init__(self):
         base_dir = Path(__file__).resolve().parent.parent
-        index_dir = base_dir / "data" / "faiss_index"
+        index_dir = base_dir / "data" / INDEX_DIRECTORY
         index_path = index_dir / "law.index"
         metadata_path = index_dir / "metadata.pkl"
         if not index_path.exists() or not metadata_path.exists():
@@ -28,7 +28,7 @@ class LawRetriever:
         self.documents = data["documents"]
         self.metadata = data["metadata"]
         self.embedder = EmbeddingModel()
-        print(f"Retriever ready: {self.index.ntotal} passages from JSON statutes.")
+        print(f"Retriever ready ({RAG_PROFILE}): {self.index.ntotal} passages from JSON statutes.")
 
     def search(self, query, top_k=5):
         top_k = min(max(1, top_k), self.index.ntotal)

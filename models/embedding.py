@@ -1,21 +1,46 @@
 """Multilingual embedding model shared by indexing and retrieval."""
 
+import os
 import torch
 from sentence_transformers import SentenceTransformer
 import streamlit as st
 
 
-# BGE-M3 supports Bengali and English retrieval well, and is easily within a
-# 16 GB GPU.  It also accepts long legal passages (up to 8,192 tokens).
-MODEL_NAME = "BAAI/bge-m3"
+# Keep BGE-M3 locally for retrieval quality. Railway's standard CPU containers
+# need a substantially smaller model to avoid an out-of-memory restart loop.
+RAG_PROFILE = os.getenv("RAG_PROFILE", "local").lower()
+PROFILE_CONFIG = {
+    "local": {
+        "model_name": "BAAI/bge-m3",
+        "index_directory": "faiss_index",
+        "max_seq_length": 8192,
+    },
+    "railway": {
+        "model_name": "intfloat/multilingual-e5-small",
+        "index_directory": "faiss_index_railway",
+        "max_seq_length": 512,
+    },
+}
+if RAG_PROFILE not in PROFILE_CONFIG:
+    raise ValueError(f"Unknown RAG_PROFILE '{RAG_PROFILE}'. Use 'local' or 'railway'.")
+
+MODEL_NAME = PROFILE_CONFIG[RAG_PROFILE]["model_name"]
+INDEX_DIRECTORY = PROFILE_CONFIG[RAG_PROFILE]["index_directory"]
+MAX_SEQUENCE_LENGTH = PROFILE_CONFIG[RAG_PROFILE]["max_seq_length"]
 
 
 @st.cache_resource
 def load_embedding_model():
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Loading {MODEL_NAME} on {device}...")
-    model = SentenceTransformer(MODEL_NAME, device=device)
-    model.max_seq_length = 8192
+    # Railway pre-downloads its smaller model during image build. Loading from
+    # the local cache at runtime avoids repeated Hub checks during restarts.
+    model = SentenceTransformer(
+        MODEL_NAME,
+        device=device,
+        local_files_only=os.getenv("HF_LOCAL_FILES_ONLY", "0") == "1",
+    )
+    model.max_seq_length = MAX_SEQUENCE_LENGTH
     return model
 
 
@@ -23,8 +48,7 @@ class EmbeddingModel:
     def __init__(self):
         self.model = load_embedding_model()
         self.device = str(self.model.device)
-        # 16 GB VRAM comfortably supports 32 BGE-M3 legal passages at once.
-        self.batch_size = 32 if self.device.startswith("cuda") else 8
+        self.batch_size = 32 if self.device.startswith("cuda") else 4
 
     def _encode(self, texts):
         return self.model.encode(

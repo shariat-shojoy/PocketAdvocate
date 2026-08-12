@@ -117,7 +117,7 @@ Open the local URL printed by Streamlit, normally `http://localhost:8501`.
 
 ## Railway deployment
 
-Railway runs this project on CPU. The included `nixpacks.toml` installs Python 3.11 and starts Streamlit on Railway's assigned port, so no additional start command is required.
+Railway runs this project on CPU. The included `nixpacks.toml` installs Python 3.11, pre-downloads the deployment embedding model, and starts Streamlit on Railway's assigned port. It uses the `railway` RAG profile (`intfloat/multilingual-e5-small` plus `data/faiss_index_railway/`) to fit a smaller cloud memory budget; local runs retain BGE-M3 by default.
 
 Set these Railway service variables before deploying:
 
@@ -126,7 +126,7 @@ GROQ_API_KEY
 OPENROUTER_API_KEY
 ```
 
-Commit and push `requirements.txt`, `nixpacks.toml`, and the FAISS index files in `data/faiss_index/`. Do not deploy `.env`, `uploads/`, or `outputs/`.
+Commit and push `requirements.txt`, `nixpacks.toml`, and both FAISS index directories (`data/faiss_index/` and `data/faiss_index_railway/`). Do not deploy `.env`, `uploads/`, or `outputs/`.
 
 ## Using the app
 

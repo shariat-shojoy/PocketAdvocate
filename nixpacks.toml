@@ -2,7 +2,11 @@
 nixPkgs = ["python311"]
 
 [phases.install]
-cmds = ["python -m pip install --upgrade pip", "python -m pip install -r requirements.txt"]
+cmds = [
+  "python -m pip install --upgrade pip",
+  "python -m pip install -r requirements.txt",
+  "RAG_PROFILE=railway python -c \"from sentence_transformers import SentenceTransformer; SentenceTransformer('intfloat/multilingual-e5-small')\""
+]
 
 [start]
-cmd = "streamlit run app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true"
+cmd = "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 RAG_PROFILE=railway HF_LOCAL_FILES_ONLY=1 streamlit run app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true"

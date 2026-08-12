@@ -100,9 +100,6 @@ def _set_preset(text):
 
 def show():
     _initialise_state()
-    if "service" not in st.session_state:
-        st.session_state.service = get_legal_service()
-
     st.markdown(
         """<section class="hero-card">
         <p class="eyebrow">Bangladesh legal research assistant</p>
@@ -195,8 +192,10 @@ def show():
                 _render_images(images)
         with st.chat_message("assistant", avatar="⚖️"):
             status = st.status("Reviewing evidence and searching relevant laws…", expanded=False)
+            # Do not load PyTorch, the embedding model, and FAISS on page
+            # startup. This keeps Railway's health check lightweight.
             answer = st.write_stream(
-                st.session_state.service.analyze_chat_stream(
+                get_legal_service().analyze_chat_stream(
                     history=st.session_state.messages[:-1],
                     text=query,
                     image_paths=[image["path"] for image in images],
