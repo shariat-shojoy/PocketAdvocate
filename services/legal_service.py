@@ -33,6 +33,7 @@ class LegalService:
             yield "**⚡ Key Takeaway:** Please provide text or an image input to analyze."
 
     def analyze_chat_stream(self, history, text=None, image_paths=None):
+        Path("outputs").mkdir(exist_ok=True)
         query = text or ""
         image_paths = image_paths or []
         vision_descriptions = []
@@ -65,3 +66,4 @@ class LegalService:
 
         yield from self.llm.generate_chat_stream(history, query, context)
 
+from pathlib import Path

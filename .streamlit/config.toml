@@ -1,0 +1,6 @@
+[server]
+# Transformer imports create thousands of dynamic modules. Watching them on a
+# read-only production filesystem floods Railway logs and can restart the app.
+fileWatcherType = "none"
+runOnSave = false
+headless = true

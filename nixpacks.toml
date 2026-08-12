@@ -9,4 +9,4 @@ cmds = [
 ]
 
 [start]
-cmd = "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 RAG_PROFILE=railway HF_LOCAL_FILES_ONLY=1 streamlit run app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true"
+cmd = "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 RAG_PROFILE=railway HF_LOCAL_FILES_ONLY=1 streamlit run app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true --server.fileWatcherType none --server.runOnSave false"

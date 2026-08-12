@@ -17,7 +17,7 @@ UPLOAD_DIR = Path("uploads")
 ALLOWED_IMAGE_TYPES = ["png", "jpg", "jpeg", "webp"]
 
 
-@st.cache_resource
+@st.cache_resource(show_spinner=False)
 def get_legal_service():
     return LegalService()
 
@@ -172,7 +172,7 @@ def show():
                 st.session_state.draft_images.pop(remove_index)
                 st.rerun()
 
-        send_clicked = st.button("Send message", key=f"send_{revision}", type="primary", use_container_width=True)
+        send_clicked = st.button("Get legal guidance", key=f"send_{revision}", type="primary", use_container_width=True)
 
     if not send_clicked:
         return
