@@ -10,3 +10,8 @@ __pycache__/
 
 # Generated FAISS index
 #data/faiss_index/
+
+# Runtime-only files; do not send user evidence or build logs to deployment.
+uploads/
+outputs/
+tmp*/

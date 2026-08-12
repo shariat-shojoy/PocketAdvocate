@@ -63,7 +63,7 @@ Each indexed passage retains metadata for the law title, section/article, chapte
 - Groq API key for legal-answer generation.
 - OpenRouter API key if image analysis is enabled.
 - Internet access the first time BGE-M3 is downloaded.
-- Optional: NVIDIA GPU. The included dependency configuration targets CUDA 12.8, appropriate for RTX 50-series GPUs. The app falls back to CPU if CUDA is unavailable.
+- Optional: NVIDIA GPU. The repository installs CPU-compatible PyTorch so it can deploy to Railway. For local GPU acceleration, install the CUDA PyTorch wheel matching your NVIDIA driver after installing the project. The app automatically uses CUDA when it is available.
 
 ## Installation
 
@@ -114,6 +114,19 @@ streamlit run app.py
 ```
 
 Open the local URL printed by Streamlit, normally `http://localhost:8501`.
+
+## Railway deployment
+
+Railway runs this project on CPU. The included `nixpacks.toml` installs Python 3.11 and starts Streamlit on Railway's assigned port, so no additional start command is required.
+
+Set these Railway service variables before deploying:
+
+```text
+GROQ_API_KEY
+OPENROUTER_API_KEY
+```
+
+Commit and push `requirements.txt`, `nixpacks.toml`, and the FAISS index files in `data/faiss_index/`. Do not deploy `.env`, `uploads/`, or `outputs/`.
 
 ## Using the app
 
