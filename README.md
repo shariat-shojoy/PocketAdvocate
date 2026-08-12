@@ -1,296 +1,166 @@
-# ⚖️ PocketAdvocate
-### AI-Powered Legal Assistant for Bangladesh
+# Pocket Advocate
 
-PocketAdvocate is an AI-powered legal assistant that helps Bangladeshi citizens understand potential legal issues by analyzing **text descriptions** or **images** of incidents. It combines **Vision-Language Models (VLMs)**, **Retrieval-Augmented Generation (RAG)**, and **Large Language Models (LLMs)** to retrieve relevant Bangladeshi laws and generate understandable legal guidance.
+Pocket Advocate is a multilingual Bangladesh-law research assistant. It accepts questions in Bangla or English, optionally analyzes one or more evidence images, retrieves relevant statutory passages, and produces a structured, source-aware explanation.
 
----
+> **Disclaimer:** This project provides educational legal information, not legal advice. For a decision about a real matter, consult a qualified advocate in Bangladesh.
 
-## 📌 Features
+## What it does
 
-- 📝 Analyze legal incidents from text
-- 🖼 Analyze screenshots or images using Vision Language Models
-- 📚 Retrieve relevant Bangladesh laws using semantic search
-- 🤖 AI-generated legal explanation
-- ⚖️ Suggest applicable laws and next legal steps
-- 🎯 Human-Computer Interaction (HCI) based user interface
-- 🌐 Deployable on Railway 
+- Answers legal questions in Bangla or English.
+- Accepts multiple uploaded images and camera captures with a single message.
+- Uses a vision model to turn image evidence into factual incident descriptions.
+- Searches a FAISS index built from Bangladesh law JSON files.
+- Shows the law title, section/article, and source file in the retrieval context used for answers.
+- Keeps a short conversation history for follow-up questions without allowing requests to grow indefinitely.
 
-- 🌐 Live link: https://pocketadvocate-production.up.railway.app/
-
----
-<img width="2559" height="1150" alt="image" src="https://github.com/user-attachments/assets/55b0fdb8-a77e-44ab-b54e-08f3a2a309b5" />
-
----
-<img width="2558" height="978" alt="image" src="https://github.com/user-attachments/assets/55c4d7a9-85ee-47a3-b16f-2303db9f0ffc" />
-
----
-<img width="2550" height="1220" alt="image" src="https://github.com/user-attachments/assets/d1cd857c-23e9-493f-ae03-2398107b4c27" />
-
----
-
-
-
-
-
-# 🏗 System Architecture
+## RAG pipeline
 
 ```text
-                User
-                  │
-                  ▼
-          Streamlit Web UI
-                  │
-        ┌─────────┴──────────┐
-        │                    │
-        ▼                    ▼
- Text Description      Image Upload
-        │                    │
-        │             Qwen2.5-VL
-        │          (Image Understanding)
-        │                    │
-        └──────────┬─────────┘
-                   ▼
-        Unified Incident Description
-                   │
-                   ▼
-       SentenceTransformer Embedding
-         (all-MiniLM-L6-v2)
-                   │
-                   ▼
-          FAISS Vector Search
-                   │
-                   ▼
-      Bangladesh Law Knowledge Base
-                   │
-                   ▼
-      Retrieval-Augmented Generation
-                   │
-                   ▼
-      Groq API (Llama Model)
-                   │
-                   ▼
-      Legal Advice & Recommendations
-                   │
-                   ▼
-         Streamlit Results Page
+Question + optional evidence images
+                |
+                +--> OpenRouter / Qwen2.5-VL (image description)
+                |
+                v
+     Multilingual query (Bangla or English)
+                |
+                v
+  BAAI/bge-m3 embeddings --> FAISS similarity search
+                |
+                v
+  Source-aware Bangladesh law passages
+                |
+                v
+ Groq / Llama 3.3 70B --> structured legal explanation
 ```
 
----
+## Legal data
 
-# 🚀 Workflow
+The index is built from the JSON files in `data/`, currently including:
 
-## 1. User Input
+- Constitution of Bangladesh
+- Penal Code
+- Code of Criminal Procedure
+- Registration Act
+- State Acquisition and Tenancy material
+- Transfer of Property Act
 
-The user provides either:
+Each indexed passage retains metadata for the law title, section/article, chapter/part, original JSON source file, source-record number, and chunk number. Long provisions are split with overlap so that retrieval remains precise while preserving surrounding context.
 
-- A text description of the incident
-- An image or screenshot
+## Tech stack
 
----
+| Area | Technology |
+| --- | --- |
+| Web application | Streamlit |
+| Embeddings | `BAAI/bge-m3` via SentenceTransformers |
+| Vector search | FAISS (`IndexFlatIP`) |
+| Legal response model | `llama-3.3-70b-versatile` via Groq |
+| Image understanding | `qwen/qwen2.5-vl-72b-instruct` via OpenRouter |
+| Data format | JSON statutes with pandas normalization |
 
-## 2. Image Understanding (Optional)
+## Requirements
 
-If an image is uploaded:
+- Python 3.13 (the included environment was tested with Python 3.13).
+- Groq API key for legal-answer generation.
+- OpenRouter API key if image analysis is enabled.
+- Internet access the first time BGE-M3 is downloaded.
+- Optional: NVIDIA GPU. The included dependency configuration targets CUDA 12.8, appropriate for RTX 50-series GPUs. The app falls back to CPU if CUDA is unavailable.
 
-- Qwen2.5-VL analyzes the image.
-- Extracts important legal context.
-- Produces a textual description of the incident.
+## Installation
 
----
-
-## 3. Embedding Generation
-
-The incident description is converted into semantic embeddings using:
-
-- Sentence Transformers
-- all-MiniLM-L6-v2
-
----
-
-## 4. Semantic Search
-
-The embedding is searched against a FAISS vector database built from Bangladeshi law documents.
-
-Top-K relevant laws are retrieved.
-
----
-
-## 5. RAG
-
-The retrieved legal sections are combined with the user's incident.
-
-A prompt is created for the LLM.
-
----
-
-## 6. AI Legal Reasoning
-
-The prompt is sent to
-
-- Groq API
-- Llama Model
-
-The model generates
-
-- Relevant laws
-- Legal explanation
-- Recommended next actions
-
----
-
-## 7. Results
-
-The user receives
-
-- Relevant Bangladesh laws
-- AI legal explanation
-- Suggested legal actions
-
----
-
-# 🧠 Technology Stack
-
-| Category | Technology |
-|----------|------------|
-| Frontend | Streamlit |
-| Programming Language | Python |
-| Vision Language Model | Qwen2.5-VL |
-| Embedding Model | SentenceTransformers |
-| Embedding | all-MiniLM-L6-v2 |
-| Vector Database | FAISS |
-| Knowledge Retrieval | RAG |
-| Large Language Model | Llama (via Groq API) |
-| Data Processing | Pandas |
-| Image Processing | Pillow |
-| Environment | python-dotenv |
-| Version Control | Git |
-| Repository | GitHub |
-| Deployment | Railway / Streamlit Cloud |
-
----
-
-# 📂 Project Structure
-
-```
-PocketAdvocate/
-│
-├── app.py
-├── requirements.txt
-├── .env
-│
-├── components/
-│   ├── hero.py
-│   ├── navbar.py
-│   └── wizard.py
-│
-├── services/
-│   ├── legal_service.py
-│   ├── rag_pipeline.py
-│   └── image_pipeline.py
-│
-├── models/
-│   ├── retriever.py
-│   ├── llm.py
-│   └── embedding.py
-│
-├── data/
-│   ├── laws.csv
-│   └── faiss_index/
-│       ├── law.index
-│       └── metadata.pkl
-│
-├── outputs/
-│
-└── assets/
-```
-
----
-
-# ⚙️ Installation
-
-Clone the repository
-
-```bash
-git clone https://github.com/yourusername/PocketAdvocate.git
-```
-
-Create a virtual environment
-
-```bash
+```powershell
+git clone https://github.com/shariat-shojoy/PocketAdvocate.git
+cd PocketAdvocate
 python -m venv .venv
-```
-
-Activate
-
-Windows
-
-```bash
-.venv\Scripts\activate
-```
-
-Install dependencies
-
-```bash
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
----
-
-# 🔑 Environment Variables
-
-Create a `.env` file
+Create a `.env` file in the project root:
 
 ```env
 GROQ_API_KEY=your_groq_api_key
+OPENROUTER_API_KEY=your_openrouter_api_key
 ```
 
----
+Never commit `.env` or API keys. If a key was ever exposed, revoke it from the provider and create a replacement.
 
-# ▶️ Run
+## Build or rebuild the legal index
 
-```bash
+Whenever you add, remove, or change a JSON file in `data/`, rebuild the index:
+
+```powershell
+python build_index.py
+```
+
+This creates or replaces:
+
+```text
+data/faiss_index/law.index
+data/faiss_index/metadata.pkl
+```
+
+The build script automatically reads every `data/*.json` statute, chunks long provisions, embeds the chunks with BGE-M3, and writes their metadata alongside the FAISS index.
+
+To check whether PyTorch can see the GPU:
+
+```powershell
+python -c "import torch; print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU')"
+```
+
+## Run the application
+
+```powershell
 streamlit run app.py
 ```
 
----
+Open the local URL printed by Streamlit, normally `http://localhost:8501`.
 
-# 📊 Core Technologies
+## Using the app
 
-- Python
-- Streamlit
-- Qwen2.5-VL
-- Sentence Transformers
-- FAISS
-- Retrieval-Augmented Generation (RAG)
-- Groq API
-- Llama
-- Git
-- GitHub
+1. Write a question in Bangla or English.
+2. Optionally upload several images, take a new camera photo, or use both.
+3. Review or remove individual evidence images before sending.
+4. Read the structured answer and referenced law passages.
+5. Ask a follow-up question; the most recent conversation turns are retained for context.
 
----
+Image descriptions are limited to 700 output tokens and legal responses to 1,500 output tokens to keep OpenRouter/Groq requests predictable.
 
-# 💡 Future Improvements
+## Project structure
 
-- Voice-based legal reporting
-- Bengali Speech-to-Text
-- Court document generation
-- Evidence timeline generation
-- Citation of Bangladesh Penal Code sections
-- Multi-language support
-- Mobile application
+```text
+PocketAdvocate/
+|-- app.py                         # Streamlit entry point
+|-- build_index.py                 # JSON statutes -> FAISS index
+|-- data/
+|   |-- *.json                     # Bangladesh-law source files
+|   `-- faiss_index/               # Generated index and metadata
+|-- models/
+|   |-- embedding.py               # BGE-M3 model configuration
+|   |-- retriever.py               # FAISS retrieval + source citations
+|   |-- llm.py                     # Groq legal-answer client
+|   `-- vision.py                  # OpenRouter image-analysis client
+|-- services/
+|   |-- legal_service.py           # Unified text/image request handling
+|   |-- rag_pipeline.py            # Text RAG flow
+|   `-- image_pipeline.py          # Image RAG flow
+|-- components/
+|   `-- chat_interface.py          # Conversation and multi-image UI
+|-- utils/
+|   |-- loader.py                  # JSON loading
+|   `-- chunker.py                 # Passage construction and chunking
+`-- assets/css/style.css            # Interface styling
+```
 
----
+## Troubleshooting
 
-# 📜 Disclaimer
+| Problem | What to do |
+| --- | --- |
+| `Legal index is missing` | Run `python build_index.py`. |
+| Index uses a different embedding model | Rebuild with `python build_index.py`. |
+| OpenRouter 402 / insufficient credits | Add credits or lower the limits in `models/vision.py`; the app already caps vision output at 700 tokens. |
+| GPU is not detected | Confirm NVIDIA drivers are installed and install the CUDA-enabled PyTorch wheel from `requirements.txt`. CPU indexing still works, but is slower. |
+| Hugging Face download fails | Check internet/proxy access, then rerun `python build_index.py`. |
 
-PocketAdvocate provides AI-assisted legal guidance for educational and informational purposes only. It does not replace advice from a licensed legal professional.
+## License and attribution
 
----
-
-# 👨‍💻 Author
-
-**Shariat Shojoy**
-
-Department of Computer Science & Engineering
-
-AI • Machine Learning • Computer Vision • Natural Language Processing
+Review the licences and terms of the source legal datasets and external model/API providers before redistribution or production deployment.
