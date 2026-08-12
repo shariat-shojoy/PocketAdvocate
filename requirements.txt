@@ -1,5 +1,7 @@
---extra-index-url https://download.pytorch.org/whl/cpu
-torch
+# CUDA 12.8 wheels support the RTX 50-series GPU. Install this project in the
+# virtual environment so BGE-M3 uses the GPU instead of the CPU.
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.11.0+cu128
 pandas
 numpy
 sentence-transformers

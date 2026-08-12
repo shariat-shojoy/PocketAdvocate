@@ -27,7 +27,7 @@
     --warning-bg:#FBF2E1;
 
     /* Type — fluid scale, no fixed breakpoints needed */
-    --text-hero:clamp(34px, 5vw, 58px);
+    --text-hero:clamp(42px, 5.6vw, 66px);
     --text-h2:clamp(22px, 2.6vw, 28px);
     --text-h3:20px;
     --text-body:17px;
@@ -71,15 +71,22 @@
     color:var(--ink);
 }
 
-.main .block-container{
-    max-width:880px;
-    padding-top:0;         /* masthead band supplies the top spacing now */
+/* Hide header elements and eliminate top whitespace */
+header, [data-testid="stHeader"], .stAppHeader {
+    display: none !important;
+    height: 0 !important;
+    visibility: hidden !important;
+}
+
+.main .block-container, [data-testid="stMainBlockContainer"]{
+    max-width:1180px;
+    padding-top:0 !important;
+    margin-top:0 !important;
     padding-bottom:4rem;
 }
 
 #MainMenu{ visibility:hidden; }
 footer{ visibility:hidden; }
-header{ visibility:hidden; }
 
 :focus-visible{
     outline:2px solid var(--ink) !important;
@@ -88,9 +95,7 @@ header{ visibility:hidden; }
 }
 
 /* ==========================================================
-   Masthead — full-bleed navy band, the page's signature element.
-   Uses the classic 100vw/-50vw trick to bleed past Streamlit's
-   centered container regardless of container width.
+   Masthead — full-bleed navy band, flush at top of page.
 ========================================================== */
 
 .navbar-band{
@@ -100,27 +105,31 @@ header{ visibility:hidden; }
     margin-left:-50vw;
     background:linear-gradient(135deg, var(--ink) 0%, var(--ink-soft) 100%);
     border-bottom:3px solid var(--brass);
-    margin-bottom:var(--space-7);
+    margin-top:0 !important;
+    margin-bottom:var(--space-4);
+    box-shadow: 0 4px 12px rgba(16,24,40,0.12);
 }
 
 .navbar-inner{
-    max-width:880px;
+    max-width:1180px;
     margin:0 auto;
-    padding:30px 24px 26px;
+    padding:16px 24px;
     display:flex;
     align-items:center;
+    justify-content:center;
+    text-align:center;
     gap:14px;
 }
 
 .navbar-mark{
-    font-size:30px;
+    font-size:28px;
     line-height:1;
     color:var(--brass);
 }
 
 .navbar-name{
     font-family:var(--font-display);
-    font-size:24px;
+    font-size:22px;
     font-weight:600;
     letter-spacing:-0.01em;
     color:#FFFFFF;
@@ -128,25 +137,37 @@ header{ visibility:hidden; }
 
 .navbar-tagline{
     font-family:var(--font-mono);
-    font-size:12px;
+    font-size:11px;
     letter-spacing:.08em;
     text-transform:uppercase;
     color:#B9C2D6;
-    margin-top:3px;
+    margin-top:2px;
 }
 
 /* ==========================================================
-   Typography
+   Typography — Centered Header & Clean Layout
 ========================================================== */
+
+.hero-card {
+    text-align: center;
+    background: var(--paper);
+    padding: 44px 40px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--hairline);
+    border-top: 3px solid var(--brass);
+    box-shadow: var(--shadow-card);
+    margin-bottom: var(--space-5);
+}
 
 .main-title{
     font-family:var(--font-display);
     font-size:var(--text-hero);
     font-weight:600;
     line-height:1.1;
-    letter-spacing:-0.015em;
+    letter-spacing:-0.025em;
     color:var(--ink);
-    margin:0 0 var(--space-2) 0;
+    margin:0 auto var(--space-2) auto;
+    text-align:center;
 }
 
 .sub-title{
@@ -154,7 +175,9 @@ header{ visibility:hidden; }
     font-size:18px;
     line-height:1.55;
     color:var(--slate);
-    max-width:54ch;
+    max-width:60ch;
+    margin:0 auto;
+    text-align:center;
 }
 
 .section-title{
@@ -173,7 +196,9 @@ header{ visibility:hidden; }
     text-transform:uppercase;
     color:var(--brass);
     margin-bottom:var(--space-2);
+    text-align:center;
 }
+
 
 .card-subtext{
     font-family:var(--font-body);
@@ -494,4 +519,127 @@ textarea:focus, input:focus{
 
 .stTabs [data-baseweb="tab-highlight"]{
     background:var(--brass) !important;
+}
+
+/* ==========================================================
+   ChatGPT / Claude Style Unified Interface & Attachments
+========================================================== */
+
+[data-testid="stVerticalBlockBorderWrapper"] {
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    padding: 26px;
+    box-shadow: var(--shadow-card);
+    margin: var(--space-5) 0 var(--space-6);
+    animation: composer-enter 240ms ease-out both;
+}
+
+[data-testid="stVerticalBlockBorderWrapper"]:focus-within {
+    border-color: var(--brass);
+    box-shadow: 0 0 0 3px var(--brass-soft), var(--shadow-card);
+}
+
+.conversation-heading {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    font-weight: 600;
+    margin: var(--space-6) 0 var(--space-3);
+}
+
+[data-testid="stChatMessage"] {
+    animation: message-enter 220ms ease-out both;
+}
+
+@keyframes message-enter {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes composer-enter {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 700px) {
+    .hero-card, [data-testid="stVerticalBlockBorderWrapper"] { padding: 26px 20px; }
+    .main-title { font-size: clamp(38px, 11vw, 52px); }
+}
+
+.input-header-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+}
+
+.input-header-sub {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--slate);
+    margin-bottom: 18px;
+}
+
+/* Quick prompt chips */
+.preset-chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.attachment-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--brass-soft);
+    border: 1px solid var(--brass);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.attachment-badge .badge-icon {
+    color: var(--brass);
+    font-weight: 700;
+}
+
+.attached-preview-box {
+    background: var(--parchment);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+.streaming-response-box {
+    background: var(--paper);
+    border-left: 4px solid var(--brass);
+    border-radius: var(--radius-md);
+    padding: 28px 32px;
+    box-shadow: var(--shadow-card);
+    margin-top: 16px;
+    margin-bottom: 24px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+}
+
+.streaming-response-box strong, .streaming-response-box b {
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.streaming-response-box ul {
+    margin-left: 20px;
+    margin-bottom: 16px;
+}
+
+.streaming-response-box li {
+    margin-bottom: 6px;
 }

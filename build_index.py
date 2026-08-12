@@ -1,60 +1,42 @@
-import os
+"""Build the FAISS index from every JSON statute in data/."""
+
 import pickle
+from pathlib import Path
+
 import faiss
 
-from utils.loader import LawLoader
+from models.embedding import EmbeddingModel, MODEL_NAME
 from utils.chunker import dataframe_to_documents
-from models.embedding import EmbeddingModel
+from utils.loader import LawLoader
 
-# -----------------------------
-# Load Dataset
-# -----------------------------
 
-loader = LawLoader("data/bdlaws_formatted.csv")
-df = loader.load()
+BASE_DIR = Path(__file__).resolve().parent
+INDEX_DIR = BASE_DIR / "data" / "faiss_index"
 
-documents, metadata = dataframe_to_documents(df)
 
-print(f"Loaded {len(documents)} legal documents.")
+def main():
+    dataframe = LawLoader(BASE_DIR / "data").load()
+    documents, metadata = dataframe_to_documents(dataframe)
+    print(f"Loaded {len(dataframe)} statute records into {len(documents)} retrieval passages.")
 
-# -----------------------------
-# Generate Embeddings
-# -----------------------------
+    embedder = EmbeddingModel()
+    print(f"Embedding with {MODEL_NAME} on {embedder.device}.")
+    embeddings = embedder.encode_documents(documents)
 
-embedder = EmbeddingModel()
+    index = faiss.IndexFlatIP(embeddings.shape[1])
+    index.add(embeddings)
+    print(f"Indexed {index.ntotal} passages ({embeddings.shape[1]} dimensions).")
 
-embeddings = embedder.encode(documents)
-
-dimension = embeddings.shape[1]
-
-# -----------------------------
-# Build FAISS
-# -----------------------------
-
-index = faiss.IndexFlatIP(dimension)
-
-index.add(embeddings)
-
-print(f"Indexed {index.ntotal} documents.")
-
-# -----------------------------
-# Save
-# -----------------------------
-
-os.makedirs("data/faiss_index", exist_ok=True)
-
-faiss.write_index(
-    index,
-    "data/faiss_index/law.index"
-)
-
-with open("data/faiss_index/metadata.pkl", "wb") as f:
-    pickle.dump(
-        {
+    INDEX_DIR.mkdir(parents=True, exist_ok=True)
+    faiss.write_index(index, str(INDEX_DIR / "law.index"))
+    with (INDEX_DIR / "metadata.pkl").open("wb") as file:
+        pickle.dump({
             "documents": documents,
-            "metadata": metadata
-        },
-        f
-    )
+            "metadata": metadata,
+            "embedding_model": MODEL_NAME,
+        }, file)
+    print(f"Index written to {INDEX_DIR}.")
 
-print("Done.")
+
+if __name__ == "__main__":
+    main()

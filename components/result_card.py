@@ -1,11 +1,13 @@
 import re
 
+# pyrefly: ignore [missing-import]
 import streamlit as st
 
 
-def show(title, icon, content):
+def show(title, icon, content, card_key=None):
 
     slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-") or "section"
+    unique_suffix = card_key or str(abs(hash(content[:50])))[:6]
 
     # Title sits outside the box — it's a label, not the outcome itself.
     st.markdown(
@@ -16,8 +18,6 @@ def show(title, icon, content):
         unsafe_allow_html=True
     )
 
-    # The actual LLM-generated outcome gets the visual weight: a real
-    # bordered container (not just an adjacent styled div), targeted by
-    # its key via the .st-key-outcome-* selector in style.css.
-    with st.container(key=f"outcome-{slug}"):
+    # The actual LLM-generated outcome gets visual weight in bordered container
+    with st.container(key=f"outcome-{slug}-{unique_suffix}"):
         st.markdown(content)
