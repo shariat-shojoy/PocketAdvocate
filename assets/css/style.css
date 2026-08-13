@@ -171,13 +171,15 @@ footer{ visibility:hidden; }
 }
 
 .sub-title{
+    display:block;
+    width:100%;
     font-family:var(--font-body);
     font-size:18px;
     line-height:1.55;
     color:var(--slate);
     max-width:52ch;
     margin:0 auto;
-    text-align:center;
+    text-align:center !important;
     text-wrap:balance;
 }
 

@@ -1,6 +1,7 @@
 # Keep the cloud deployment CPU-compatible. Railway does not provide an NVIDIA
 # CUDA runtime; the app automatically uses CUDA locally when a CUDA build of
 # PyTorch is installed.
+--extra-index-url https://download.pytorch.org/whl/cpu
 torch
 pandas
 numpy

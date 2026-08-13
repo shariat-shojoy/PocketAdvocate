@@ -1,67 +1,60 @@
-Law #1 — Source: The Penal Code, 1860 — 351 Assault (penal-code.json)
+Law #1 — Source: The State Acquisition and Tenancy Act, 1950 — 58 Manner of payment of compensation (state-aquisition.json)
 Text:
-Law: The Penal Code, 1860
-Chapter/Part: OF OFFENCES AFFECTING THE HUMAN BODY
-Section/Article: 351 Assault
+Law: The State Acquisition and Tenancy Act, 1950
+Chapter/Part: PAYMENT OF COMPENSATION
+Section/Article: 58 Manner of payment of compensation
 
 Text:
-351. Whoever makes any gesture, or any preparation intending or knowing it to be likely that such gesture or preparation will cause any person present to apprehend that he who makes that gesture or preparation is about to use criminal force to that person, is said to commit an assault.
-Explanation.- Mere words do not amount to an assault. But the words which a person uses may give to his gestures or preparation such a meaning as may make those gestures or preparations amount to an assault.
-Illustrations
-(a) A shakes his fist at Z, intending or knowing it to be likely that he may thereby cause Z to believe that A is about to strike Z. A has committed an assault.
-(b) A begins to unloose the muzzle of a ferocious dog, intending, or knowing it to be likely that he may thereby cause Z to believe that he is about to cause the dog to attack Z. A has committed an assault upon Z.
-(c) A takes up a stick, saying to Z, "I will give you a beating". Here, though the words used by A could in no case amount to an assault, and though the mere gesture, unaccompanied by any other circumstances, might not amount to an assault, the gesture explained by the words may amount to an assault.
+tly in bonds. The bonds shall be non-negotiable and payable in not more than forty annual instalments to the person named therein or his successor-in-interest and shall carry interest at three per centum per annum with effect from the date of issue.
+(3) If any person, entitled to receive such compensation in respect of any estate, tenure or holding or part thereof or any land, had no power to alienate such estate, tenure, holding, part or land, or if there be any dispute as to the title to receive the compensation or as to the apportionment of it, the Revenue-officer shall keep the amount of compensation, or the bonds in which it is to be paid, in deposit with the Collector of the district:
+Provided that nothing herein contained shall effect the liability of any person who may receive the whole or any part of any compensation awarded under this Act to pay the same to the person lawfully entitled thereto.
+(4) Notwithstanding anything contained in sub-sections (2) and (3), an annuity referred to in clause (3) of section 37 or sub-section (1a) of section 39 shall be paid to the Commissioner of Wakfs in the case of a wakf or wakf-al-al-aulad and to a trustee to be appointed in this behalf by the Government in any other case.
+ 
+ 
+(5) If any compensation is paid to a person in excess of the amount admissible to him under sub-section (1) or if a person receives any compensation to which he is not legally entitled, the Collector may require such person to refund the amount within a period fixed. On the failure of such person to do so, the amount shall be treated as a “public demand” and shall be recovered from such person as a public demand under Article 4(i) of Schedule I of the Bengal Public Demands Recovery Act, 1913:
 
-Law #2 — Source: The Penal Code, 1860 — 507 Criminal intimidation by an anonymous communication (penal-code.json)
+Law #2 — Source: The State Acquisition and Tenancy Act, 1950 — 58 Manner of payment of compensation (state-aquisition.json)
 Text:
-Law: The Penal Code, 1860
-Chapter/Part: OF CRIMINAL INTIMIDATION, INSULT, PREJUDICIAL ACT AND ANNOYANCE
-Section/Article: 507 Criminal intimidation by an anonymous communication
-
-Text:
-507. Whoever commits the offence of criminal intimidation by an anonymous communication, or having taken precaution to conceal the name or abode of the person from whom the threat comes, shall be punished with imprisonment of either description for a term which may extend to two years, in addition to the punishment provided for the offence by the last preceding section.
-
-Law #3 — Source: The Penal Code, 1860 — 29 “Document” (penal-code.json)
-Text:
-Law: The Penal Code, 1860
-Chapter/Part: GENERAL EXPLANATIONS
-Section/Article: 29 “Document”
+Law: The State Acquisition and Tenancy Act, 1950
+Chapter/Part: PAYMENT OF COMPENSATION
+Section/Article: 58 Manner of payment of compensation
 
 Text:
-29. The word "document" denotes any matter expressed or described upon any substance by means of letters, figures, marks, or by more than one of those means, intended to be used, or which may be used, as evidence of that matter.
-Explanation 1.-It is immaterial by what means or upon what substance the letters, figures or marks are formed, or whether the evidence is intended for, or may be used in a Court of Justice, or not.
-Illustrations
-A writing expressing the terms of a contract, which may be used as evidence of the contract, is a document.
-A cheque upon a banker is a document.
-A Power-of-Attorney is a document.
-A map or plan which is intended to be used or which may be used as evidence, is a document.
-A writing containing directions or instructions is a document.
-Explanation 2.-Whatever is expressed by means of letters, figures or marks as explained by mercantile or other usage, shall be deemed to be expressed by such letters, figures or marks within the meaning of this section, although the same may not be actually expressed.
-Illustration
-A writes his name on the back of a bill of exchange payable to his order. The meaning of the endorsement, as explained by mercantile usage, is that the bill is to be paid to the holder. The endorsement is a document, and must be construed in the same manner as if the words "pay to the holder" or words to that effect had been written over the signature.
+hin a period fixed. On the failure of such person to do so, the amount shall be treated as a “public demand” and shall be recovered from such person as a public demand under Article 4(i) of Schedule I of the Bengal Public Demands Recovery Act, 1913:
+Provided that nothing herein contained shall affect the criminal liability of the person concerned.
 
-Law #4 — Source: The Penal Code, 1860 — 503 Criminal intimidation (penal-code.json)
+Law #3 — Source: The Code of Criminal Procedure, 1898 — 524 Procedure where no claimant appears within six months (criminal-procedure.json)
 Text:
-Law: The Penal Code, 1860
-Chapter/Part: OF CRIMINAL INTIMIDATION, INSULT, PREJUDICIAL ACT AND ANNOYANCE
-Section/Article: 503 Criminal intimidation
+Law: The Code of Criminal Procedure, 1898
+Chapter/Part: OF THE DISPOSAL OF PROPERTY
+Section/Article: 524 Procedure where no claimant appears within six months
 
 Text:
-503. Whoever threatens another with any injury to his person, reputation or property, or to the person or reputation of any one in whom that person is interested, with intent to cause to alarm to that person, or to cause that person to do any act which he is not legally bound to do, or to omit to do any act which that person is legally entitled to do, as the means of avoiding the execution of such threat, commits criminal intimidation.
-Explanation.-A threat to injure the reputation of any deceased person in whom the person threatened is interested, is within this section.
-Illustration
-A, for the purpose of inducing B to desist from prosecuting a civil suit, threatens to burn B's house. A is guilty of criminal intimidation.
+524.(1) If no person within such period establishes his claim to such property, and if the person in whose possession such property was found, is unable to show that it was legally acquired by him, such property shall be at the disposal of the Government, and may be sold under the orders of the  Chief Metropolitan Magistrate, Chief Judicial Magistrate, or of a Magistrate of the first class empowered by the Government in this behalf.
+(2) In the case of every order passed under this section, an appeal shall lie to the Court to which appeals against sentences of the Court passing such order would lie.
 
-Law #5 — Source: The Penal Code, 1860 — 383 Extortion (penal-code.json)
+Law #4 — Source: The State Acquisition and Tenancy Act, 1950 — 4 Service of notice to furnish returns, etc. and penalty for non-compliance (state-aquisition.json)
 Text:
-Law: The Penal Code, 1860
-Chapter/Part: OF OFFENCES AGAINST PROPERTY
-Section/Article: 383 Extortion
+Law: The State Acquisition and Tenancy Act, 1950
+Chapter/Part: SPECIAL PROVISIONS FOR THE ACQUISITION OF THE INTERESTS OF CERTAIN RENT-RECEIVERS
+Section/Article: 4 Service of notice to furnish returns, etc. and penalty for non-compliance
 
 Text:
-383. Whoever intentionally puts any person in fear of any injury to that person, or to any other, and thereby dishonestly induces the person so put in fear to give donation or subscription of any kind or to deliver to any person any property or valuable security or anything signed or sealed which may be converted into a valuable security, commits "extortion".
-Illustrations
-(a) A threatens to publish a defamatory libel concerning Z unless Z gives him money. He thus induces Z to give him money. A has committed extortion.
-(b) A threatens Z that he will keep Z's child in wrongful confinement unless Z will sign and deliver to A a promissory note binding Z to pay certain money to A. Z signs and delivers the note. A has committed extortion.
-(c) A threatens to send club-men to plough up Z's field unless Z will sign and deliver to B and bond binding Z under a penalty to deliver certain produce to B, and thereby induces Z to sign and deliver the bond. A has committed extortion.
-(d) A, by putting Z in fear of grievous hurt, dishonestly induces Z to sign or affix his seal to a blank paper and deliver it to A. Z signs and delivers the paper to A. Here, as the paper so signed may be converted into a valuable security, A has committed extortion.
+r tenancy, as the case may be, and
+(ii) in the case of a revenue-free estate or a rent-free taluk, tenure, holding or tenancy, extend to such amount not exceeding two thousand five hundred rupees as the Revenue-officer may fix in his discretion; and
+(b) in addition, he may be deprived of the benefit of the ad interim payment as provided in section 6 if so ordered by the Revenue-officer.
+ 
+ 
+(5) (i) If any rent-receiver, on whom a notice has been served under sub-section (1) fails to hand over the papers of his sherista relating to any estate, taluk, tenure, holding or tenancy in accordance with the direction contained in such notice within the time specified therein or within such further time as the Revenue-officer may allow in his discretion, the Revenue-officer or any other person authorised by him, may, with such assistance, if any, as he thinks necessary, enter upon any land or building, where the Revenue-officer has reason to believe that such papers may be found, and seize and take possession of such papers as he may consider essential for the management of such estate, taluk, tenure, holding or tenancy:
+Provided that the Revenue-officer or such other person shall not enter upon any enclosed courtyard or garden attached to a building except with the consent of the inmate or occupier thereof or if such consent is refused, except after giving such inmate or occupier at least two hours' notice in writing of his intention to do so:
+Provided further that an inventory of the papers taken possession of by the Revenue-officer or such other person under this sub-section shall be furnished to the rent-receiver concerned by the Revenue-officer.
+(ii) The provisions of this sub-section shall apply without prejudice to the provisions of sub-section (4).
+
+Law #5 — Source: The State Acquisition and Tenancy Act, 1950 — 58 Manner of payment of compensation (state-aquisition.json)
+Text:
+Law: The State Acquisition and Tenancy Act, 1950
+Chapter/Part: PAYMENT OF COMPENSATION
+Section/Article: 58 Manner of payment of compensation
+
+Text:
+58. (1) When the time within which appeals under section 51 or under section 53 may be made in respect of any entry in or omission from a Compensation Assessment-roll has expired and, where any such appeal has been made under section 51, the time within which a reference may be made to the High Court under section 52 with regard to any order made by the Special Judge in relation to such appeal has also expired and all references made under section 52 in relation to all such appeals have been disposed of and all orders under sub-section (4) of that section arising out of such references have been passed and, where any appeal has been made under section 53, such appeal has been disposed of, the Revenue-officer shall proceed to make payment to the proprietors, tenure-holders and other rent-receivers, and to any groups of proprietors, tenure-holders or other rent-receivers and to the cultivating raiyats, cultivating under-raiyats and other persons, who are shown in such Compensation Assessment-roll as finally modified under section 54 to be entitled to compensation, of the compensation payable to them in the terms of the said roll after deducting from the amount of any compensation so payable any amount which has been ordered by the Collector to be so deducted under clause (b), (c), (d) or (dd) of sub-section (4) of section 3 or clause (5), (6), (6a) or (7) of section 44 and also any amount to be deducted from such compensation under clause (8) of section 44 or clause (2) of section 46E or section 76B and any amount recoverable from such compensation under Chapter X:
